@@ -7,6 +7,9 @@
     padding-left: 5%;
     text-align: center;
     background: rgb(37, 37, 37);
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
     font-weight: 900;
 }
 .form-control{
