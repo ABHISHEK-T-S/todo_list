@@ -1,4 +1,5 @@
 var str1='{}';
+var limit;
 
 
 function addtask(){
@@ -24,12 +25,23 @@ function addtask(){
     
     // CONVERT STRING TO REGULAR JS OBJECT
     var parsedObject = JSON.parse(retrievedObject);
-    var limit=parsedObject.taskitems.length;
+    limit=parsedObject.taskitems.length;
     
     // ACCESS DATA
     for(var i=1 ;i<limit;i++){
-        console.log(parsedObject.taskitems[1].task);
+        console.log(parsedObject.taskitems[i].task);
+        z.innerHTML=z.innerHTML+'<div class ="tasks" id = "tasks">task : '+parsedObject.taskitems[i].task+'<br> date : '+parsedObject.taskitems[i].date+'<br>  time : '+parsedObject.taskitems[i].time+'</div>';
     }
-    z.innerHTML=z.innerHTML+'<div class ="tasks" id = "tasks">task : '+task+'<br> date : '+date+'<br>  time : '+time+'</div>';
+    
+}
+var retrievedObject = localStorage.getItem('added-items');
+    
+// CONVERT STRING TO REGULAR JS OBJECT
+var parsedObject = JSON.parse(retrievedObject);
+limit=parsedObject.taskitems.length;
+for(var i=1 ;i<limit;i++){
+    var z = document.getElementById("tasklist");
+    console.log(parsedObject.taskitems[i].task);
+    z.innerHTML=z.innerHTML+'<div class ="tasks" id = "tasks">task : '+parsedObject.taskitems[i].task+'<br> date : '+parsedObject.taskitems[i].date+'<br>  time : '+parsedObject.taskitems[i].time+'</div>';
 }
 
