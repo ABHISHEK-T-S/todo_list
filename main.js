@@ -1,10 +1,19 @@
 function addtask(){
 
- var z = document.getElementById("tasklist");
- z.innerHTML=z.innerHTML+'<div class ="tasks" id = "tasks">text</div>';
+    var z = document.getElementById("tasklist");
+    
+    var task = document.getElementById("task").value;
+    console.log(task);
+    var time = document.getElementById("time").value;
+    console.log(time);
+    var date = document.getElementById("date").value;
+    console.log(date);
+
+    z.innerHTML=z.innerHTML+'<div class ="tasks" id = "tasks">task : '+task+'<br> date : '+date+'<br>  time : '+time+'</div>';
    
 
 }
+
 var string = '{"items":[{"Desc":"Item1" ,"hello":"world"},{"Desc":"Item2"}]}';
 
 // DO NOT STRINGIFY AGAIN WHEN WRITING TO LOCAL STORAGE
