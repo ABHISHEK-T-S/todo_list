@@ -74,7 +74,19 @@ else {
     for (var i = 0; i < limit-1; i++) {
         
         //console.log(parsedObject.taskitems[i].task);
-        z.innerHTML = z.innerHTML + '<div class ="tasks" id = "tasks">task : ' + parsedObject.taskitems[i].task + '<br> date : ' + parsedObject.taskitems[i].date + '<br>  time : ' + parsedObject.taskitems[i].time + '</div>';
+        z.innerHTML = z.innerHTML + '    <div class="row task" id="tasks">\
+        <div class="col-9">\
+        task : ' + parsedObject.taskitems[limit-2].task + '<br> date : ' + parsedObject.taskitems[limit-2].date + '<br>  time : ' + parsedObject.taskitems[limit-2].time + '\
+        </div>\
+        <div class="col-3">\
+            <div class="row">\
+                <button class="btn-danger" id="btnclose" onClick=closedd(this)>Close</button>\
+            </div>\
+            <div class="row">\
+                <button class="btn-success" id="btndone" onClick=closedd(this)>Done</button>\
+            </div>\
+        </div>\
+    </div></div>';
     }
 }
 
