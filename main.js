@@ -76,7 +76,7 @@ else {
         //console.log(parsedObject.taskitems[i].task);
         z.innerHTML = z.innerHTML + '    <div class="row task" id="tasks">\
         <div class="col-9">\
-        task : ' + parsedObject.taskitems[limit-2].task + '<br> date : ' + parsedObject.taskitems[limit-2].date + '<br>  time : ' + parsedObject.taskitems[limit-2].time + '\
+        task : ' + parsedObject.taskitems[i].task + '<br> date : ' + parsedObject.taskitems[i].date + '<br>  time : ' + parsedObject.taskitems[i].time + '\
         </div>\
         <div class="col-3">\
             <div class="row">\
