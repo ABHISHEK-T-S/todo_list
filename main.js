@@ -11,8 +11,8 @@ function addtask() {
 
     var parsedObject = JSON.parse(retrievedObject);
     //str1 = str1 + ',{"task":"' + task + '" ,"date":"' + date + '","time":"' + time + '"}';
-    var str1 = '{"task":"' + task + '" ,"date":"' + date + '","time":"' + time + '"},{}';
-    retrievedObject=retrievedObject.slice(0,-4);
+    var str1 = '{"task":"' + task + '" ,"date":"' + date + '","time":"' + time + '"},{"time":"t"}';
+    retrievedObject=retrievedObject.slice(0,-14);
     if (parsedObject.length>=1){
     retrievedObject = retrievedObject+',' + str1 + ']}';
     }
@@ -54,7 +54,34 @@ function addtask() {
 
 }
 function closedd(te){
+    var prettt = te.parentElement.parentElement.parentElement.children[0].innerHTML;
+    console.log(prettt.trim());
+    var retrievedObject3 = localStorage.getItem('added-items');
+    var parsedObject3 = JSON.parse(retrievedObject3);
+    length = parsedObject3.taskitems.length;
+    
+    console.log(ift);
     te.parentElement.parentElement.parentElement.remove()
+    var retrievedObject3 = localStorage.getItem('added-items');
+    var parsedObject3 = JSON.parse(retrievedObject3);
+    
+   // if(prettt.trim()==ift.trim()){console.log("suc");}
+
+
+    for (var i = 0; i < length-1; i++) {
+        var ift = 'task : ' + parsedObject3.taskitems[i].task + '<br> date : ' + parsedObject3.taskitems[i].date + '<br>  time : ' + parsedObject3.taskitems[i].time ;
+        if (prettt.trim()==ift.trim()){
+            console.log("sucess");
+            parsedObject3.taskitems.splice(i,1);
+            console.log(parsedObject3);
+            localStorage.clear();
+            var stringified = JSON.stringify(parsedObject3);
+            console.log(stringified);
+            localStorage.setItem('added-items',stringified);
+        }
+    
+    }
+
 }
 
 var limit;
@@ -64,7 +91,7 @@ var retrievedObject = localStorage.getItem('added-items');
 var parsedObject = JSON.parse(retrievedObject);
 
 if (retrievedObject == null) {
-    retrievedObject = '{"taskitems":['+'{}]}';
+    retrievedObject = '{"taskitems":['+'{"time":"r"}]}';
 }
 else {
     // CONVERT STRING TO REGULAR JS OBJECT
@@ -89,4 +116,3 @@ else {
     </div></div>';
     }
 }
-
